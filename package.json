@@ -1,0 +1,22 @@
+{
+  "name": "arbitrade",
+  "version": "2.0.0",
+  "description": "crypto-arbitrage-trading-system",
+  "main": "server/index.js",
+  "scripts": {
+    "build": "cd client && npm run build",
+    "install:all": "cd client && npm install"
+  },
+
+  "author": "XIAN",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

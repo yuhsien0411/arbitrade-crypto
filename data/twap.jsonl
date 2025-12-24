@@ -1,0 +1,61 @@
+{
+    "ts": 1766425230511,
+    "mode": "twap",
+  
+    "strategyId": "twap_cf773449",
+    "pairId": null,
+    "twapId": "twap_cf773449",
+  
+    "executionIndex": 1,
+    "status": "success",
+    "reason": null,
+    "error": null,
+  
+    "qty": 0.01,
+    "spread": 0.2899999999999636,
+    "spreadPercent": 0.009561632137633549,
+  
+    "totalAmount": 0.1,
+    "orderCount": 10,
+    "sliceQty": 0.01,
+    "threshold": null,
+    "intervalMs": 10000,
+  
+    "totalTriggers": null,          
+  
+    "isRollback": false,
+    "originalSliceIndex": null,
+  
+    "leg1": {
+      "exchange": "bybit",
+      "symbol": "ETHUSDT",
+      "type": "linear",
+      "side": "buy",
+      "orderId": "75cf383c-2982-4a78-857c-31726e2481f5",
+      "price": 3032.81,
+      "priceUpdated": true,
+      "originalOrderId": null
+    },
+    "leg2": {
+      "exchange": "binance",
+      "symbol": "ETHUSDT",
+      "type": "linear",
+      "side": "sell",
+      "orderId": "8389766058330074503",
+      "price": 3033.1,
+      "priceUpdated": true,
+      "originalOrderId": null
+    }
+  }{"ts": 1766508307833, "mode": "twap", "strategyId": "twap_6168e245", "pairId": null, "twapId": "twap_6168e245", "executionIndex": 1, "status": "success", "reason": null, "error": null, "qty": 0.01, "spread": -0.40000000000009095, "spreadPercent": -0.013547978472265286, "totalAmount": 0.01, "orderCount": 1, "sliceQty": 0.01, "threshold": null, "intervalMs": 10000, "totalTriggers": null, "isRollback": false, "originalSliceIndex": null, "leg1": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "spot", "side": "buy", "orderId": "2112019184862104064", "price": 2952.67, "priceUpdated": true, "originalOrderId": null}, "leg2": {"exchange": "binance", "symbol": "ETHUSDT", "type": "spot", "side": "sell", "orderId": "41021228689", "price": 2952.27, "priceUpdated": true, "originalOrderId": null}}
+{"ts": 1766508343650, "mode": "twap", "strategyId": "twap_b4287386", "pairId": null, "twapId": "twap_b4287386", "executionIndex": 1, "status": "success", "reason": null, "error": null, "qty": 0.01, "spread": -1.5299999999997453, "spreadPercent": -0.051809874691206216, "totalAmount": 0.01, "orderCount": 1, "sliceQty": 0.01, "threshold": null, "intervalMs": 10000, "totalTriggers": null, "isRollback": false, "originalSliceIndex": null, "leg1": {"exchange": "binance", "symbol": "ETHUSDT", "type": "linear", "side": "sell", "orderId": "8389766059233683230", "price": 2952.34, "priceUpdated": true, "originalOrderId": null}, "leg2": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "spot", "side": "buy", "orderId": "2112019506716215808", "price": 2953.87, "priceUpdated": true, "originalOrderId": null}}
+{"ts": 1766508423753, "mode": "twap", "strategyId": "twap_c5f193b6", "pairId": null, "twapId": "twap_c5f193b6", "executionIndex": 1, "status": "success", "reason": null, "error": null, "qty": 0.01, "spread": -0.010000000000218279, "spreadPercent": -0.0003384237911999079, "totalAmount": 0.02, "orderCount": 2, "sliceQty": 0.01, "threshold": null, "intervalMs": 10000, "totalTriggers": null, "isRollback": false, "originalSliceIndex": null, "leg1": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "spot", "side": "sell", "orderId": "2112020177628695040", "price": 2954.87, "priceUpdated": true, "originalOrderId": null}, "leg2": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "spot", "side": "buy", "orderId": "2112020178685659648", "price": 2954.88, "priceUpdated": true, "originalOrderId": null}}
+{"ts": 1766508425619, "mode": "twap", "strategyId": "twap_c5f193b6", "pairId": null, "twapId": "twap_c5f193b6", "executionIndex": 2, "status": "cancelled", "reason": "manual", "error": null, "qty": 0.01, "spread": null, "spreadPercent": null, "totalAmount": 0.02, "orderCount": 2, "sliceQty": 0.01, "threshold": null, "intervalMs": 10000, "totalTriggers": null, "isRollback": false, "originalSliceIndex": null, "leg1": null, "leg2": null}
+{"ts": 1766508541994, "mode": "twap", "strategyId": "twap_8a459821", "pairId": null, "twapId": "twap_8a459821", "executionIndex": 1, "status": "success", "reason": null, "error": null, "qty": 0.01, "spread": 1.6700000000000728, "spreadPercent": 0.056515434297425934, "totalAmount": 0.02, "orderCount": 2, "sliceQty": 0.01, "threshold": null, "intervalMs": 10000, "totalTriggers": null, "isRollback": false, "originalSliceIndex": null, "leg1": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "linear", "side": "buy", "orderId": "b200902b-b69e-4273-a705-3dd68ea2d698", "price": 2954.11, "priceUpdated": true, "originalOrderId": null}, "leg2": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "spot", "side": "sell", "orderId": "2112021170579835392", "price": 2955.78, "priceUpdated": true, "originalOrderId": null}}
+{"ts": 1766508543767, "mode": "twap", "strategyId": "twap_8a459821", "pairId": null, "twapId": "twap_8a459821", "executionIndex": 2, "status": "cancelled", "reason": "manual", "error": null, "qty": 0.01, "spread": null, "spreadPercent": null, "totalAmount": 0.02, "orderCount": 2, "sliceQty": 0.01, "threshold": null, "intervalMs": 10000, "totalTriggers": null, "isRollback": false, "originalSliceIndex": null, "leg1": null, "leg2": null}
+{"ts": 1766511389749, "mode": "twap", "strategyId": "twap_c691323b", "pairId": null, "twapId": "twap_c691323b", "totalTriggers": 1, "status": "success", "reason": null, "error": null, "qty": 0.01, "spread": 0.1999999999998181, "spreadPercent": 0.006805846221898426, "totalAmount": 0.02, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "linear", "side": "sell", "orderId": "c16404c9-152a-481f-a6db-156c5b8da9b0", "price": 2938.75, "priceUpdated": true, "originalOrderId": null}, "leg2": {"exchange": "okx", "symbol": "ETHUSDT", "type": "linear", "side": "buy", "orderId": "3154418298380984320", "price": 2938.55, "priceUpdated": true, "originalOrderId": null}}
+{"ts": 1766511391568, "mode": "twap", "strategyId": "twap_c691323b", "pairId": null, "twapId": "twap_c691323b", "totalTriggers": 2, "status": "cancelled", "reason": "manual", "error": null, "qty": 0.01, "spread": null, "spreadPercent": null, "totalAmount": 0.02, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": null, "leg2": null}
+{"ts": 1766511591308, "mode": "twap", "strategyId": "twap_a5a81416", "pairId": null, "twapId": "twap_a5a81416", "totalTriggers": 1, "status": "success", "reason": null, "error": null, "qty": 0.01, "spread": -1.7200000000002547, "spreadPercent": -0.05857851735048871, "totalAmount": 0.02, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "linear", "side": "sell", "orderId": "9ef8ad0c-001a-41bb-98d6-6c9f3349a730", "price": 2935.37, "priceUpdated": true, "originalOrderId": null}, "leg2": {"exchange": "bybit", "symbol": "ETHUSDT", "type": "spot", "side": "buy", "orderId": "2112046750423583232", "price": 2937.09, "priceUpdated": true, "originalOrderId": null}}
+{"ts": 1766511594213, "mode": "twap", "strategyId": "twap_a5a81416", "pairId": null, "twapId": "twap_a5a81416", "totalTriggers": 2, "status": "cancelled", "reason": "manual", "error": null, "qty": 0.01, "spread": null, "spreadPercent": null, "totalAmount": 0.02, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": null, "leg2": null}
+{"ts": 1766557388963, "mode": "twap", "strategyId": "twap_1a699129", "pairId": null, "twapId": "twap_1a699129", "totalTriggers": 1, "status": "failed", "reason": null, "error": "Retryable error occurred, retrying...", "qty": 10.0, "spread": null, "spreadPercent": null, "totalAmount": 20.0, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": {"exchange": "bybit", "symbol": "AVNTUSDT", "type": "linear", "side": "buy", "orderId": null, "price": null, "priceUpdated": false, "originalOrderId": null}, "leg2": null}
+{"ts": 1766557395560, "mode": "twap", "strategyId": "twap_dd2c01f0", "pairId": null, "twapId": "twap_dd2c01f0", "totalTriggers": 1, "status": "failed", "reason": null, "error": "Retryable error occurred, retrying...", "qty": 10.0, "spread": null, "spreadPercent": null, "totalAmount": 20.0, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": {"exchange": "bybit", "symbol": "AVNTUSDT", "type": "linear", "side": "buy", "orderId": null, "price": null, "priceUpdated": false, "originalOrderId": null}, "leg2": null}
+{"ts": 1766557398929, "mode": "twap", "strategyId": "twap_b33fe0a0", "pairId": null, "twapId": "twap_b33fe0a0", "totalTriggers": 1, "status": "failed", "reason": null, "error": "Retryable error occurred, retrying...", "qty": 10.0, "spread": null, "spreadPercent": null, "totalAmount": 20.0, "orderCount": 2, "threshold": null, "intervalMs": 10000, "isRollback": false, "leg1": {"exchange": "bybit", "symbol": "AVNTUSDT", "type": "linear", "side": "buy", "orderId": null, "price": null, "priceUpdated": false, "originalOrderId": null}, "leg2": null}

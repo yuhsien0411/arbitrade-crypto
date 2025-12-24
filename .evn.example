@@ -1,0 +1,42 @@
+# ========== 交易所 API 設定 ==========
+# Bybit
+BYBIT_API_KEY=
+BYBIT_SECRET=
+BYBIT_TESTNET=false  # 是否使用 Bybit 測試網（true/false）
+
+# Binance（支援 Portfolio Margin 統一帳戶）
+BINANCE_API_KEY=
+BINANCE_SECRET=
+BINANCE_USE_PORTFOLIO_MARGIN=true
+
+# OKX（全倉合約）
+OKX_API_KEY=
+OKX_SECRET=
+OKX_PASSWORD=
+
+# Bitget（僅支援 USDT-M 永續合約）
+BITGET_API_KEY=
+BITGET_SECRET=
+BITGET_PASSWORD=
+
+# ========== 系統設定 ==========
+DEBUG=true
+LOG_LEVEL=INFO
+
+# ========== 前後端網址 / IP 設定 ==========
+# 後端 CORS 允許的前端網址（部署時請改成你的域名或 IP）
+# 支持多個 URL，用逗號分隔，例如：FRONTEND_URL=http://localhost:3000,http://68.183.176.181:3000
+FRONTEND_URL=http://localhost:3000
+
+# 後端服務設定
+BACKEND_HOST=0.0.0.0  # 後端監聽地址（0.0.0.0 表示監聽所有網卡）
+BACKEND_PORT=7001     # 後端服務端口
+
+# 前端服務設定
+FRONTEND_PORT=3000    # 前端服務端口
+
+# 前端在 build/運行時可用的 API/WS 變數
+# 若未設置，前端會自動用當前 host + port 7001，但部署建議明確指定
+REACT_APP_API_URL=http://127.0.0.1:7001
+REACT_APP_SERVER_URL=http://127.0.0.1:7001
+REACT_APP_WS_URL=ws://127.0.0.1:7001/ws
