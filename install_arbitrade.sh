@@ -4,7 +4,7 @@ cat > /root/install_arbitrade.sh << 'EOF'
 
 # Arbitrade 一鍵安裝部署腳本
 # 作者: XIAN
-# 版本: 2.0.1
+# 版本: 2.0.3
 
 set -e  # 遇到錯誤立即停止
 
@@ -41,7 +41,7 @@ fi
 echo ""
 echo "======================================"
 echo "  Arbitrade 加密貨幣套利系統"
-echo "  一鍵安裝部署腳本 v2.0.1"
+echo "  一鍵安裝部署腳本 v2.0.3"
 echo "======================================"
 echo ""
 
@@ -209,55 +209,41 @@ print_success "後端依賴安裝完成"
 print_status "步驟 10/11: 安裝前端依賴並構建..."
 cd /root/arbitrade-crypto/client
 npm install --silent
-npm run build
-ls -lh build/ | head -5
-print_success "前端構建完成"
 
-# 步驟 11: 創建 PM2 配置
-print_status "步驟 11/11: 創建 PM2 配置..."
+# 檢查系統內存，設置合適的 Node.js 堆內存限制
+if [ $TOTAL_MEM -lt 2048 ]; then
+    print_warning "檢測到低內存環境，設置 Node.js 堆內存限制為 1024MB"
+    export NODE_OPTIONS="--max-old-space-size=1024"
+else
+    print_status "正常內存環境，使用默認 Node.js 設置"
+fi
+
+print_status "開始構建前端（這可能需要 5-10 分鐘，請耐心等待）..."
+npm run build
+
+if [ $? -eq 0 ]; then
+    ls -lh build/ | head -5
+    print_success "前端構建完成"
+else
+    print_error "前端構建失敗！"
+    print_warning "建議在本地 Windows 電腦構建後上傳："
+    print_warning "1. 本地運行: npm run build"
+    print_warning "2. 壓縮: tar -czf build.tar.gz build/"
+    print_warning "3. 上傳: scp build.tar.gz root@SERVER_IP:/root/arbitrade-crypto/client/"
+    print_warning "4. 解壓: tar -xzf build.tar.gz"
+    exit 1
+fi
+
+# 步驟 11: 配置 PM2 啟動
+print_status "步驟 11/11: 配置 PM2 服務..."
 cd /root/arbitrade-crypto
-cat > ecosystem.config.js << 'PMEOF'
-module.exports = {
-  apps: [
-    {
-      name: 'arbitrade-backend',
-      cwd: '/root/arbitrade-crypto/python_backend',
-      script: 'venv/bin/uvicorn',
-      args: 'app.main:app --host 0.0.0.0 --port 7001 --log-level error',
-      instances: 1,
-      autorestart: true,
-      watch: false,
-      max_memory_restart: '1G',
-      env: {
-        ENVIRONMENT: 'production',
-        PYTHONUNBUFFERED: '1'
-      },
-      error_file: '/root/logs/backend-error.log',
-      out_file: '/root/logs/backend-out.log',
-      log_file: '/root/logs/backend-combined.log',
-      time: true
-    },
-    {
-      name: 'arbitrade-frontend',
-      cwd: '/root/arbitrade-crypto/client',
-      script: 'serve',
-      args: '-s build -l 3000',
-      instances: 1,
-      autorestart: true,
-      watch: false,
-      max_memory_restart: '500M',
-      error_file: '/root/logs/frontend-error.log',
-      out_file: '/root/logs/frontend-out.log',
-      log_file: '/root/logs/frontend-combined.log',
-      time: true
-    }
-  ]
-};
-PMEOF
-print_success "PM2 配置創建完成"
 
 # 創建日誌目錄
 mkdir -p /root/logs
+
+print_status "準備啟動服務..."
+print_warning "注意：由於 PM2 參數傳遞限制，前端將使用命令行方式啟動"
+print_success "PM2 配置準備完成"
 
 # 配置防火牆
 print_status "配置防火牆..."
@@ -280,17 +266,23 @@ echo ""
 echo "1. 編輯環境配置文件，填入 API 密鑰："
 echo "   ${YELLOW}nano /root/arbitrade-crypto/.env${NC}"
 echo ""
-echo "2. 啟動服務："
+echo "2. 啟動後端服務："
 echo "   ${YELLOW}cd /root/arbitrade-crypto${NC}"
-echo "   ${YELLOW}pm2 start ecosystem.config.js${NC}"
+echo "   ${YELLOW}pm2 start python_backend/venv/bin/python --name arbitrade-backend --cwd python_backend -- -m uvicorn app.main:app --host 0.0.0.0 --port 7001 --log-level error${NC}"
+echo ""
+echo "3. 啟動前端服務："
+echo "   ${YELLOW}pm2 start \"cd /root/arbitrade-crypto/client && serve -s build -l 3000\" --name arbitrade-frontend --log /root/logs/frontend.log${NC}"
+echo ""
+echo "4. 保存 PM2 配置："
 echo "   ${YELLOW}pm2 save${NC}"
 echo "   ${YELLOW}pm2 startup${NC}"
+echo "   執行輸出的命令以設置開機自啟動"
 echo ""
-echo "3. 查看服務狀態："
+echo "5. 查看服務狀態："
 echo "   ${YELLOW}pm2 status${NC}"
 echo "   ${YELLOW}pm2 logs${NC}"
 echo ""
-echo "4. 訪問您的應用："
+echo "6. 訪問您的應用："
 echo "   前端: ${GREEN}http://$SERVER_IP:3000${NC}"
 echo "   後端: ${GREEN}http://$SERVER_IP:7001/health${NC}"
 echo ""
